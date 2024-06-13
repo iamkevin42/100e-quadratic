@@ -12,33 +12,35 @@ Assignments:
 ##### x02. Determine the number of solutions
 Determine the number of solutions. You will need to make use of the discriminant.  If you have already completed x01, you can import that function and make use of it in this assignment
 """
-import x01_discriminant
+import x01_discriminant 
+import math
+
 
 def numSolutions(discriminant):
-  """
-  input parameters:
-  discriminant: signed float
-  
-  alternately, you can change the function definition to calculate the discriminant in the function itself:
-def numSolutions(a,b,c):
+    if discriminant > 0:
+        print("This has 2 solutions")
+        return 2
+    elif discriminant == 0:
+        print("This has 1 solution")
+        return 1
+    elif discriminant < 0:
+        print('This has 0 solutions')
+        return 0
 
-  return: 
-  integer for number of solutions.  It should be 0, 1 or 2
-  """
-  
-  return None
 
+numSolutions(discriminant=6)
 def main():
-  # Uncomment the lines that make use of your function definition
-  #assert numSolutions(2,3,8) == 0
-  #assert numSolutions(-55) == 0
-  
-  #assert numSolutions(1,4,4) == 1
-  #assert numSolutions(0) == 1
-  
-  #assert numSolutions(1,-1,-6) == 2
-  #assert numSolutions(25) == 2
+    #Calculate the discriminant and pass it to the numSolutions function
+    assert numSolutions(x01_discriminant.discriminant(2,3,8)) == 0
+    ttt = x01_discriminant.discriminant(2,3,8)
+    assert numSolutions(ttt) == 0
+    
+    assert numSolutions(x01_discriminant.discriminant(1,4,4)) == 1
+    tt = x01_discriminant.discriminant(1,4,4)
+    assert numSolutions(tt) == 1
+        
+    assert numSolutions(x01_discriminant.discriminant(1, -1, -6)) == 2
+    t = x01_discriminant.discriminant(1, -1, -6)
+    assert numSolutions(t) == 2 
 
-if __name__ == "__main__":
-  main()
-  
+
